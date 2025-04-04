@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Capsa QBO Integration</title>
+</head>
+<body>
+  <h1>Capsa QBO Integration</h1>
+  <p id="output">Waiting for code...</p>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get('code');
+    document.getElementById('output').textContent = code ? `Authorization Code: ${code}` : 'No code found.';
+  </script>
+</body>
+</html>
