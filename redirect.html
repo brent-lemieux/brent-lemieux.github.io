@@ -47,18 +47,33 @@
     <h1>Capsa QuickBooks Integration</h1>
     <p id="message">Waiting for authorization code...</p>
     <div class="code-box" id="codeDisplay"></div>
+    <p id="realmMessage">Waiting for realm ID...</p>
+    <div class="code-box" id="realmDisplay"></div>
   </div>
   <script>
     const params = new URLSearchParams(window.location.search);
     const code = params.get('code');
+    const realmId = params.get('realmId');
+    
     const messageEl = document.getElementById('message');
     const codeEl = document.getElementById('codeDisplay');
+    const realmMessageEl = document.getElementById('realmMessage');
+    const realmEl = document.getElementById('realmDisplay');
+    
     if (code) {
       messageEl.textContent = "Authorization Code Received:";
       codeEl.textContent = code;
     } else {
       messageEl.textContent = "No authorization code found in the URL.";
       codeEl.style.display = "none";
+    }
+    
+    if (realmId) {
+      realmMessageEl.textContent = "Realm ID Received:";
+      realmEl.textContent = realmId;
+    } else {
+      realmMessageEl.textContent = "No Realm ID found in the URL.";
+      realmEl.style.display = "none";
     }
   </script>
 </body>
